@@ -6,7 +6,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Sorting Visualizer");
+    sf::RenderWindow window(sf::VideoMode(3024, 1964), "Sorting Visualizer", sf::Style::Default);
 
     std::vector<int> data;
     int numberOfBars = 50;

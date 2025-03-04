@@ -5,22 +5,21 @@ void InsertionSort::sort(std::vector<int> &array, sf::RenderWindow &window, bool
 {
     for (int i = 1; i < array.size(); i++)
     {
-        for (int j = i; j >= 0; j--)
+        for (int j = i; j > 0; j--)
         {
             if (!sorted)
             {
-
                 sf::RectangleShape bar1(sf::Vector2f(10, array[j]));
                 bar1.setOutlineThickness(2);
                 bar1.setOutlineColor(sf::Color::Red);
-                bar1.setPosition(j * 15, 600 - array[j]);
+                bar1.setPosition(j * 15, window.getSize().y - array[j]);
                 bar1.setFillColor(sf::Color::White);
                 window.draw(bar1);
 
                 sf::RectangleShape bar2(sf::Vector2f(10, array[j - 1]));
                 bar2.setOutlineThickness(2);
                 bar2.setOutlineColor(sf::Color::Red);
-                bar2.setPosition((j - 1) * 15, 600 - array[j - 1]);
+                bar2.setPosition((j - 1) * 15, window.getSize().y - array[j - 1]);
                 bar2.setFillColor(sf::Color::White);
                 window.draw(bar2);
 
@@ -32,6 +31,11 @@ void InsertionSort::sort(std::vector<int> &array, sf::RenderWindow &window, bool
                     //swapped = true;
                     swap(j - 1, j, array);
                 }
+                else
+                {
+                    std::cout << "breaking" << std::endl;
+                    break;
+                }
             }
 
             window.clear(sf::Color::Black);
@@ -40,7 +44,7 @@ void InsertionSort::sort(std::vector<int> &array, sf::RenderWindow &window, bool
                 sf::RectangleShape bar(sf::Vector2f(10, array[i]));
                 bar.setOutlineThickness(2);
                 bar.setOutlineColor(sf::Color::Green);
-                bar.setPosition(i * 15, 600 - array[i]);
+                bar.setPosition(i * 15, window.getSize().y - array[i]);
                 bar.setFillColor(sf::Color::White);
                 window.draw(bar);
             }
