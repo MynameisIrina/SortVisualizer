@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "BubbleSort.h"
+#include "InsertionSort.h"
+
 
 int main()
 {
@@ -25,7 +27,9 @@ int main()
         }
 
         window.clear();
-        BubbleSort::sort(data, window, sorted);
+        //BubbleSort::sort(data, window, sorted);
+        InsertionSort::sort(data, window, sorted);
+
         sorted = true;
         window.display();
     }
